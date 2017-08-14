@@ -1,0 +1,43 @@
+Arguments: 
+  /usr/local/Cellar/node/8.2.0_1/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.24.6
+
+Node version: 
+  8.2.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "dependencies": {
+      "prop-types": "^15.5.8",
+      "react": "^15.5.4",
+      "react-dom": "^15.5.4"
+    },
+    "devDependencies": {
+      "react-scripts": "0.9.5"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND artifactory.lv9devmbo.com artifactory.lv9devmbo.com:443
+      at errnoException (dns.js:50:10)
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
