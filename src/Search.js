@@ -14,7 +14,14 @@ class Search extends React.Component {
                 if ( books.error ) {
                     this.setState({books: []})
                 }else {
-                    this.setState({books})
+                    const searchResults = books.map(book => {
+                        const match = this.props.myBooks.find(myBook => myBook.id === book.id);
+                        if(match) {
+                            book.shelf = match.shelf
+                        }
+                        return book;
+                    })
+                    this.setState({books: searchResults})
                 }
             });
         } else {
@@ -43,22 +50,13 @@ class Search extends React.Component {
                             //Some books are missing an imageLink
                             if(book.imageLinks === undefined){
                                 book.imageLinks = ''
-                            }
+                            } 
 
-                            const matchedBook = this.props.myBooks.find(b => b.id === book.id)
-                            if(matchedBook !== undefined) {
-                                return(
-                                    <li key={matchedBook.id}>
-                                        <Book book={matchedBook} onChange={this.updateBookList} />
-                                    </li>
-                                )
-                            } else {
-                                return(
-                                    <li key={book.id}>
-                                        <Book book={book} onChange={this.updateBookList} />
-                                    </li>
-                                )
-                            }
+                            return(
+                                <li key={book.id}>
+                                    <Book book={book} onChange={this.updateBookList} />
+                                </li>
+                            )
                             
                         }) : null
                     }
